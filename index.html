@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CYBER BREACH 😈</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#030407;color:#00fff0;
+ font-family:monospace;min-height:100vh;
+ display:flex;align-items:center;justify-content:center;
+ padding:18px;
+}
+.card{
+ width:100%;max-width:450px;padding:22px;
+ background:linear-gradient(145deg,#10151f,#030407);
+ border:1px solid #00fff080;border-radius:18px;
+ box-shadow:0 0 30px #00fff022;
+}
+h1{text-align:center;color:#ff3155;
+ text-shadow:0 0 15px #ff3155;font-size:27px}
+.sub{text-align:center;color:#7b8c9c;font-size:11px}
+.warning{
+ border:1px solid #ff3155;padding:13px;
+ color:#ff536d;text-align:center;
+ margin:20px 0;border-radius:8px;
+ animation:blink 1s infinite alternate;
+}
+@keyframes blink{to{box-shadow:0 0 20px #ff315566}}
+.screen{
+ background:#010303;padding:14px;
+ border:1px solid #173a40;border-radius:8px;
+ min-height:180px;font-size:12px;line-height:2;
+ overflow-wrap:anywhere;
+}
+.log{color:#00ff9d;animation:appear .3s}
+@keyframes appear{from{opacity:0}to{opacity:1}}
+.track{height:9px;background:#19252b;
+ margin-top:18px;border-radius:10px;overflow:hidden}
+.fill{height:100%;width:0;
+ background:linear-gradient(90deg,#ff3155,#00fff0);
+ transition:width .4s}
+#pct{text-align:right;font-size:12px;margin-top:8px}
+button{
+ width:100%;padding:14px;margin-top:15px;
+ background:#00fff0;color:#001010;
+ border:0;border-radius:8px;font-weight:bold;
+ font-size:15px;cursor:pointer
+}
+#reveal{display:none;text-align:center;padding:20px 0}
+#reveal h2{color:#00ff9d;font-size:32px}
+#reveal p{line-height:1.9;color:white}
+.small{text-align:center;color:#657786;font-size:10px;margin-top:15px}
+</style>
+</head>
+<body>
+<div class="card">
+ <div style="text-align:center;font-size:45px">☠️</div>
+ <h1>CYBER BREACH</h1>
+ <div class="sub">HACKER SIMULATION // PRANK MODE</div>
+
+ <div id="app">
+  <div class="warning">
+   ⚠ SECURITY ALERT ⚠<br>
+   Suspicious Activity Detected!
+  </div>
+  <div class="screen" id="terminal">
+   <div class="log">[BOOT] System initialized...</div>
+   <div class="log">[INFO] Waiting for command...</div>
+   <div>[SAFE] Visual demo only.</div>
+  </div>
+  <div class="track"><div class="fill" id="fill"></div></div>
+  <div id="pct">0%</div>
+  <button id="go" onclick="start()">⚡ START SCAN</button>
+  <div class="small">SIMULATION ONLY · NO REAL ACCOUNT ACCESS</div>
+ </div>
+
+ <div id="reveal">
+  <div style="font-size:65px">😂</div>
+  <h2>GOT YOU!</h2>
+  <p>
+   မင်းကို တကယ်ဟက်ခံရတာ မဟုတ်ဘူးကွာ 🤣<br>
+   <b style="color:#00fff0">PRANK သက်သက်ပါ!</b><br>
+   သူငယ်ချင်းရေ စိတ်မဆိုးနဲ့နော် ❤️
+  </p>
+  <button onclick="location.reload()">🔄 PLAY AGAIN</button>
+ </div>
+</div>
+
+<script>
+const logs=[
+ "[INIT] Initializing visual engine...",
+ "[SCAN] Checking demo modules... OK",
+ "[NET] Simulating network activity...",
+ "[WARN] Unusual-looking activity detected!",
+ "[SAFE] No Telegram account connected.",
+ "[SYS] Rendering cyber effects...",
+ "[SCAN] Completing fake security scan...",
+ "[DONE] Preparing surprise reveal..."
+];
+let busy=false;
+function start(){
+ if(busy)return;
+ busy=true;
+ const btn=document.getElementById('go');
+ const terminal=document.getElementById('terminal');
+ btn.disabled=true;
+ btn.textContent='SCANNING...';
+ let i=0;
+ const timer=setInterval(()=>{
+  if(i>=logs.length){
+   clearInterval(timer);
+   document.getElementById('app').style.display='none';
+   document.getElementById('reveal').style.display='block';
+   return;
+  }
+  const line=document.createElement('div');
+  line.className='log';
+  line.textContent=logs[i];
+  terminal.appendChild(line);
+  terminal.scrollTop=terminal.scrollHeight;
+  const n=Math.round((i+1)/logs.length*100);
+  document.getElementById('fill').style.width=n+'%';
+  document.getElementById('pct').textContent=n+'%';
+  i++;
+ },850);
+}
+</script>
+</body>
+</html>
